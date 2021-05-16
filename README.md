@@ -1,14 +1,16 @@
-# piano
+# Piano
 
-A new Flutter package project.
+A Flutter package that provides:
 
-## Getting Started
+* logic for working with musical **notes**, **clefs** and **octaves**;
+* a widget that can **render notes on a clef**;
+* an **interactive piano** widget.
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+## Where is it used?
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+In "Learn The Notes", a simple sight reading trainer you can find on the [iOS app store here](https://apps.apple.com/nl/app/learn-the-notes/id1567585072?l=en).
+
+## More like this
+
+* I blog about Flutter here: https://handform.net/
+* I'm on LinkedIn: https://www.linkedin.com/in/craigbmcmahon/
