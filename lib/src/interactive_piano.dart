@@ -11,53 +11,63 @@ import 'note_range.dart';
 typedef OnNotePositionTapped = void Function(NotePosition position);
 
 /// Renders a scrollable interactive piano.
-/// 
-/// See individual parameters for more information. The only required parameter
-/// is `noteRange`. Since the widget wraps a scroll view and therefore has no
-/// "intrinsic" size, be sure to use inside a parent that specifies one.
-/// 
-/// For example:
-/// ```
-/// SizedBox(
-///   width: 300,
-///   height: 100,
-///   child: InteractivePiano(
-///     noteRange: NoteRange.forClefs(
-///       [Clef.Treble], 
-///       extended: true
-///     )
-///   )
-/// )
-/// ```
-/// 
-/// Normally you'll want to pass `keyWidth`—if you don't, the entire range of notes
-/// will be squashed into the width of the widget.
 class InteractivePiano extends StatefulWidget {
   /// The range of notes to create interactive keys for.
   final NoteRange noteRange;
+
   /// The range of notes to highlight.
   final List<NotePosition> highlightedNotes;
+
   /// The color with which to draw highlighted notes; blended with the color of the key.
   final Color highlightColor;
+
   /// Color to render "natural" notes—typically white.
   final Color naturalColor;
+
   /// Color to render "accidental" notes (sharps and flats)—typically black.
   final Color accidentalColor;
+
   /// Whether to apply a repeating press animation to highlighted notes.
   final bool animateHighlightedNotes;
+
   /// Whether to treat tapped notes as flats instead of sharps. Affects the value passed to `onNotePositionTapped`.
   final bool useAlternativeAccidentals;
+
   /// Whether to hide note names on keys.
   final bool hideNoteNames;
+
   /// Whether to hide the scroll bar, that appears below the keys.
   final bool hideScrollbar;
+
   /// Leave as `null` to have keys sized automatically to fit the width of the widget.
   final double? keyWidth;
+
   /// Callback for interacting with piano keys.
   final OnNotePositionTapped? onNotePositionTapped;
+
   /// Set and change at any time (i.e. with `setState`) to cause the piano to scroll so that the desired note is centered.
   final NotePosition? noteToScrollTo;
 
+  /// See individual parameters for more information. The only required parameter
+  /// is `noteRange`. Since the widget wraps a scroll view and therefore has no
+  /// "intrinsic" size, be sure to use inside a parent that specifies one.
+  ///
+  /// For example:
+  /// ```
+  /// SizedBox(
+  ///   width: 300,
+  ///   height: 100,
+  ///   child: InteractivePiano(
+  ///     noteRange: NoteRange.forClefs(
+  ///       [Clef.Treble],
+  ///       extended: true
+  ///     )
+  ///   )
+  /// )
+  /// ```
+  ///
+  /// Normally you'll want to pass `keyWidth`—if you don't, the entire range of notes
+  /// will be squashed into the width of the widget.
   InteractivePiano(
       {Key? key,
       required this.noteRange,
