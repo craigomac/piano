@@ -10,7 +10,7 @@ A Flutter package that provides:
 
 In "Learn The Notes", a simple sight reading trainer you can find on the [iOS app store here](https://apps.apple.com/nl/app/learn-the-notes/id1567585072?l=en).
 
-![Example showing musical clef and interactive piano](example.png "Example")
+![Example showing musical clef and interactive piano](https://raw.githubusercontent.com/craigomac/piano/main/example.png "Example")
 
 
 ## More like this
