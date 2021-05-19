@@ -31,6 +31,8 @@ class ClefImage extends StatelessWidget {
           child: CustomPaint(
         painter: ClefPainter(
           clef: clef,
+          clefColor: clefColor,
+          noteColor: noteColor,
           noteRange: noteRange,
           noteRangeToClip: noteRangeToClip,
           lineHeight: 1,
