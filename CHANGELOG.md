@@ -1,3 +1,7 @@
+## [1.0.3+1] - Updating README again
+
+* Added sample code
+
 ## [1.0.3] - Updating README
 
 * Fix failure to respect `clefColor` and `noteColor` on `ClefImage`
