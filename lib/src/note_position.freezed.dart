@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'note_position.dart';
 
@@ -10,26 +12,7 @@ part of 'note_position.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$NotePositionTearOff {
-  const _$NotePositionTearOff();
-
-  _NotePosition call(
-      {required Note note,
-      int octave = 4,
-      Accidental accidental = Accidental.None}) {
-    return _NotePosition(
-      note: note,
-      octave: octave,
-      accidental: accidental,
-    );
-  }
-}
-
-/// @nodoc
-const $NotePosition = _$NotePositionTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$NotePosition {
@@ -132,11 +115,11 @@ class _$_NotePosition implements _NotePosition {
 
   @override
   final Note note;
-  @JsonKey(defaultValue: 4)
   @override
+  @JsonKey()
   final int octave;
-  @JsonKey(defaultValue: Accidental.None)
   @override
+  @JsonKey()
   final Accidental accidental;
 
   @override
@@ -147,22 +130,20 @@ class _$_NotePosition implements _NotePosition {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _NotePosition &&
-            (identical(other.note, note) ||
-                const DeepCollectionEquality().equals(other.note, note)) &&
-            (identical(other.octave, octave) ||
-                const DeepCollectionEquality().equals(other.octave, octave)) &&
-            (identical(other.accidental, accidental) ||
-                const DeepCollectionEquality()
-                    .equals(other.accidental, accidental)));
+        (other.runtimeType == runtimeType &&
+            other is _NotePosition &&
+            const DeepCollectionEquality().equals(other.note, note) &&
+            const DeepCollectionEquality().equals(other.octave, octave) &&
+            const DeepCollectionEquality()
+                .equals(other.accidental, accidental));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(note) ^
-      const DeepCollectionEquality().hash(octave) ^
-      const DeepCollectionEquality().hash(accidental);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(note),
+      const DeepCollectionEquality().hash(octave),
+      const DeepCollectionEquality().hash(accidental));
 
   @JsonKey(ignore: true)
   @override
@@ -172,9 +153,9 @@ class _$_NotePosition implements _NotePosition {
 
 abstract class _NotePosition implements NotePosition {
   factory _NotePosition(
-      {required Note note,
-      int octave,
-      Accidental accidental}) = _$_NotePosition;
+      {required final Note note,
+      final int octave,
+      final Accidental accidental}) = _$_NotePosition;
 
   @override
   Note get note => throw _privateConstructorUsedError;
