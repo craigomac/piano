@@ -65,24 +65,25 @@ class _$NotePositionCopyWithImpl<$Res> implements $NotePositionCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$NotePositionCopyWith<$Res>
+abstract class _$$_NotePositionCopyWith<$Res>
     implements $NotePositionCopyWith<$Res> {
-  factory _$NotePositionCopyWith(
-          _NotePosition value, $Res Function(_NotePosition) then) =
-      __$NotePositionCopyWithImpl<$Res>;
+  factory _$$_NotePositionCopyWith(
+          _$_NotePosition value, $Res Function(_$_NotePosition) then) =
+      __$$_NotePositionCopyWithImpl<$Res>;
   @override
   $Res call({Note note, int octave, Accidental accidental});
 }
 
 /// @nodoc
-class __$NotePositionCopyWithImpl<$Res> extends _$NotePositionCopyWithImpl<$Res>
-    implements _$NotePositionCopyWith<$Res> {
-  __$NotePositionCopyWithImpl(
-      _NotePosition _value, $Res Function(_NotePosition) _then)
-      : super(_value, (v) => _then(v as _NotePosition));
+class __$$_NotePositionCopyWithImpl<$Res>
+    extends _$NotePositionCopyWithImpl<$Res>
+    implements _$$_NotePositionCopyWith<$Res> {
+  __$$_NotePositionCopyWithImpl(
+      _$_NotePosition _value, $Res Function(_$_NotePosition) _then)
+      : super(_value, (v) => _then(v as _$_NotePosition));
 
   @override
-  _NotePosition get _value => super._value as _NotePosition;
+  _$_NotePosition get _value => super._value as _$_NotePosition;
 
   @override
   $Res call({
@@ -90,7 +91,7 @@ class __$NotePositionCopyWithImpl<$Res> extends _$NotePositionCopyWithImpl<$Res>
     Object? octave = freezed,
     Object? accidental = freezed,
   }) {
-    return _then(_NotePosition(
+    return _then(_$_NotePosition(
       note: note == freezed
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -131,7 +132,7 @@ class _$_NotePosition implements _NotePosition {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NotePosition &&
+            other is _$_NotePosition &&
             const DeepCollectionEquality().equals(other.note, note) &&
             const DeepCollectionEquality().equals(other.octave, octave) &&
             const DeepCollectionEquality()
@@ -147,8 +148,8 @@ class _$_NotePosition implements _NotePosition {
 
   @JsonKey(ignore: true)
   @override
-  _$NotePositionCopyWith<_NotePosition> get copyWith =>
-      __$NotePositionCopyWithImpl<_NotePosition>(this, _$identity);
+  _$$_NotePositionCopyWith<_$_NotePosition> get copyWith =>
+      __$$_NotePositionCopyWithImpl<_$_NotePosition>(this, _$identity);
 }
 
 abstract class _NotePosition implements NotePosition {
@@ -165,6 +166,6 @@ abstract class _NotePosition implements NotePosition {
   Accidental get accidental => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$NotePositionCopyWith<_NotePosition> get copyWith =>
+  _$$_NotePositionCopyWith<_$_NotePosition> get copyWith =>
       throw _privateConstructorUsedError;
 }
