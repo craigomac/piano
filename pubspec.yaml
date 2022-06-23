@@ -11,17 +11,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  freezed_annotation: ^0.14.2
+  freezed_annotation: 2.0.3
   equatable: ^2.0.0
   collection: ^1.15.0
 
 dev_dependencies:
-  freezed: ^0.14.2
+  build_runner: 2.1.7
+  freezed: 2.0.3
   flutter_test:
     sdk: flutter
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter.
 flutter:
