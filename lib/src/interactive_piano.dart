@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:collection/collection.dart';
 
@@ -68,7 +65,7 @@ class InteractivePiano extends StatefulWidget {
   ///
   /// Normally you'll want to pass `keyWidth`—if you don't, the entire range of notes
   /// will be squashed into the width of the widget.
-  InteractivePiano(
+  const InteractivePiano(
       {Key? key,
       required this.noteRange,
       this.highlightedNotes = const [],
@@ -119,7 +116,7 @@ class _InteractivePianoState extends State<InteractivePiano> {
     if (noteToScrollTo != null && oldWidget.noteToScrollTo != noteToScrollTo) {
       _scrollController?.animateTo(
           _computeScrollOffsetForNotePosition(noteToScrollTo),
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut);
     }
 
@@ -158,7 +155,7 @@ class _InteractivePianoState extends State<InteractivePiano> {
   @override
   Widget build(BuildContext context) => Container(
         color: Colors.black,
-        padding: EdgeInsets.only(top: 2, bottom: 10),
+        padding: const EdgeInsets.only(top: 2, bottom: 10),
         child: Center(
           child: LayoutBuilder(builder: (context, constraints) {
             _lastWidth = constraints.maxWidth;
@@ -181,8 +178,8 @@ class _InteractivePianoState extends State<InteractivePiano> {
                 child: ListView.builder(
                     shrinkWrap: true,
                     physics: widget.hideScrollbar
-                        ? NeverScrollableScrollPhysics()
-                        : ClampingScrollPhysics(),
+                        ? const NeverScrollableScrollPhysics()
+                        : const ClampingScrollPhysics(),
                     itemCount: _noteGroups.length,
                     controller: _scrollController,
                     scrollDirection: Axis.horizontal,
@@ -294,8 +291,8 @@ class __PianoKeyState extends State<_PianoKey>
   void initState() {
     super.initState();
 
-    final animationBegin = 1.0;
-    final animationEnd = 0.95;
+    const animationBegin = 1.0;
+    const animationEnd = 0.95;
     _controller = AnimationController(
         duration: const Duration(milliseconds: 2000), vsync: this);
 
@@ -381,18 +378,18 @@ class __PianoKeyState extends State<_PianoKey>
                 child: IgnorePointer(
                   child: Container(
                     decoration: (widget.notePosition == NotePosition.middleC)
-                        ? BoxDecoration(
+                        ? const BoxDecoration(
                             color: Colors.red,
                             shape: BoxShape.circle,
                           )
                         : null,
                     child: widget.hideNoteName
-                        ? Container(
+                        ? SizedBox(
                             width: widget.keyWidth / 2,
                             height: widget.keyWidth / 2,
                           )
                         : Padding(
-                            padding: EdgeInsets.all(2),
+                            padding: const EdgeInsets.all(2),
                             child: Text(
                               widget.notePosition.name,
                               textAlign: TextAlign.center,
@@ -431,12 +428,12 @@ class _MaybeScrollbar extends StatelessWidget {
       ? Container(child: child)
       : RawScrollbar(
           thumbColor: Colors.grey.shade600,
-          radius: Radius.circular(16),
+          radius: const Radius.circular(16),
           thickness: 16,
-          isAlwaysShown: true,
+          thumbVisibility: true,
           controller: scrollController,
           child: Container(
               color: Colors.black,
-              padding: EdgeInsets.only(bottom: 24),
+              padding: const EdgeInsets.only(bottom: 24),
               child: child));
 }
