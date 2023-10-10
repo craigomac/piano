@@ -85,7 +85,7 @@ extension NotePositionHelpers on NotePosition {
 
   int get pitch {
     int offset;
-    switch (this.note) {
+    switch (note) {
       case Note.C:
         offset = 24; // C1
         break;

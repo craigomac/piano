@@ -9,9 +9,11 @@ class NoteRange {
   final List<NotePosition> allPositions;
   final List<NotePosition> naturalPositions;
 
-  NoteRange(NotePosition from, NotePosition to,
-      {Accidental accidentals = Accidental.Sharp})
-      : firstPosition = from,
+  NoteRange({
+    required NotePosition from,
+    required NotePosition to,
+    Accidental accidentals = Accidental.Sharp,
+  })  : firstPosition = from,
         lastPosition = to,
         allPositions = _positions(from, to, accidentals: accidentals),
         naturalPositions = _positions(from, to, accidentals: Accidental.None);
@@ -24,7 +26,7 @@ class NoteRange {
     final from = sortedClefs.first.firstNotePosition(extended);
     final to = sortedClefs.last.lastNotePosition(extended);
 
-    return NoteRange(from, to);
+    return NoteRange(from: from, to: to);
   }
 
   bool contains(NotePosition notePosition) =>

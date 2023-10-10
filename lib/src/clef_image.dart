@@ -23,7 +23,7 @@ class ClefImage extends StatelessWidget {
     required this.noteColor,
     this.size = Size.zero,
     NoteRange? noteRangeToClip,
-  })  : this.noteRangeToClip = noteRangeToClip ?? noteRange,
+  })  : noteRangeToClip = noteRangeToClip ?? noteRange,
         super(key: key);
 
   @override

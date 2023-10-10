@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:collection/collection.dart';
 
 import 'clef.dart';
@@ -51,7 +50,7 @@ class ClefPainter extends CustomPainter with EquatableMixin {
   final Paint _tailPaint;
 
   TextPainter? _clefSymbolPainter;
-  Map<Accidental, TextPainter> _accidentalSymbolPainters = {};
+  final Map<Accidental, TextPainter> _accidentalSymbolPainters = {};
   Size? _lastClefSize;
   final List<NotePosition> _naturalPositions;
 
@@ -79,7 +78,7 @@ class ClefPainter extends CustomPainter with EquatableMixin {
       return;
     }
 
-    final naturalPositionOf = (notePosition) =>
+    naturalPositionOf(notePosition) =>
         (noteRangeToClip?.contains(notePosition) == false)
             ? -1
             : _naturalPositions.indexWhere((_) =>
@@ -132,14 +131,12 @@ class ClefPainter extends CustomPainter with EquatableMixin {
         canvas.drawLine(
             Offset(bounds.left, y), Offset(bounds.right, y), _linePaint);
 
-        if (firstLineY == null) {
-          firstLineY = y;
-        }
+        firstLineY ??= y;
         lastLineY = y;
       }
     }
 
-    final tailHeight = 7;
+    const tailHeight = 7;
     final middleLineIndex =
         (firstLineIndex + (lastLineIndex - firstLineIndex - 1) / 2).floor();
 

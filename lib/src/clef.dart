@@ -1,6 +1,10 @@
 import 'note_position.dart';
 
-enum Clef { Bass, Alto, Treble }
+enum Clef {
+  Bass,
+  Alto,
+  Treble,
+}
 
 extension ClefSymbols on Clef {
   String get symbol {
