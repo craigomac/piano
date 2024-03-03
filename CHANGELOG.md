@@ -1,3 +1,9 @@
+## [1.0.4] - Update dependencies
+
+* Loosen dependency on `freezed_annotation`
+* Update Flutter version
+* Add `fromName` method on `NotePosition`
+
 ## [1.0.3+1] - Updating README again
 
 * Added sample code
