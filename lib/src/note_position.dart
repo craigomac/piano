@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'note_position.freezed.dart';
@@ -78,9 +79,59 @@ class NotePosition with _$NotePosition {
   }) = _NotePosition;
 
   static NotePosition get middleC => NotePosition(note: Note.C, octave: 4);
+
+  ///
+  /// Parse a `String` into a `NotePosition`. Accepts strings of two or three
+  /// characters, which must include a note name, an optional sharp or flat
+  /// symbol, and an octave number.
+  ///
+  /// Sharp symbols are '#' or '♯'.
+  /// Flat symbols are  '♭' or 'b'.
+  ///
+  /// Example strings:
+  /// * F#5
+  /// * C3
+  /// * B♭4
+  static NotePosition? fromName(String string) {
+    if (string.length < 2) {
+      return null;
+    }
+
+    final name = string[0];
+    final accidentalSymbol = string.length == 3 ? string[1] : null;
+    final octaveString = string.length == 3 ? string[2] : string[1];
+
+    final note = Note.values.firstWhereOrNull((_) => _.name == name);
+    final octave = int.tryParse(octaveString);
+
+    if (note == null || octave == null) {
+      return null;
+    }
+
+    final Accidental accidental;
+
+    if (accidentalSymbol == '#' || accidentalSymbol == '♯') {
+      accidental = Accidental.Sharp;
+    } else if (accidentalSymbol == '♭' || accidentalSymbol == 'b') {
+      accidental = Accidental.Flat;
+    } else {
+      accidental = Accidental.None;
+    }
+
+    return NotePosition(
+      note: note,
+      octave: octave,
+      accidental: accidental,
+    );
+  }
 }
 
 extension NotePositionHelpers on NotePosition {
+  ///
+  /// Returns a string identifying this position, composed of a note name,
+  /// sharp or flat symbol, and octave number. For example 'F#5'. Use
+  /// `NotePosition.fromName` to convert back into a `NotePosition.`
+  ///
   String get name => "${note.name}${accidental.symbol}$octave";
 
   int get pitch {
